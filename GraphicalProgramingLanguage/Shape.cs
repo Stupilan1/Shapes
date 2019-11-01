@@ -9,6 +9,8 @@ namespace GraphicalProgramingLanguage
 {
     class Shape
     {
+        public Shape()
+        { }
 
         public enum shapes
         {
@@ -32,7 +34,7 @@ namespace GraphicalProgramingLanguage
         public int Width { get; set; }
         public int Height { get; set; }
 
-        public static bool Helper(string input, out Shape output)
+        public static bool userinput(string input, out Shape output)
         {
             output = null;
 

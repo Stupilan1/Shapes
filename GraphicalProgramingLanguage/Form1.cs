@@ -26,7 +26,7 @@ namespace GraphicalProgramingLanguage
         private void button1_Click(object sender, EventArgs e)
         {
             shape = null;
-            if (!Shape.Helper(txtB.Text, out shape))
+            if (!Shape.userinput(txtB.Text, out shape))
             {
                 return;
             }
