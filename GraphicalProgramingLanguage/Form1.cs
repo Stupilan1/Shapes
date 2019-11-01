@@ -33,8 +33,15 @@ namespace GraphicalProgramingLanguage
             pictureBox1.Invalidate();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            shape = null;
+            pictureBox1.Invalidate();
+        }
+
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
+
             e.Graphics.Clear(Color.White);
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             if (shape != null)
@@ -58,12 +65,8 @@ namespace GraphicalProgramingLanguage
                 }
             }
         }
-
-
-
-
-
-
-
     }
+
+
+    
  }
