@@ -37,6 +37,13 @@ namespace Unit_Test
             //assert
 
         }
+        [TestMethod]
+        public void Measurements_withZeroAmoutn_doesnotdrawshape()
+        {
+
+            throw new NotImplementedException();
+
+        }
 
         [TestMethod]
         public void Test_ifloop()

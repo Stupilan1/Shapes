@@ -15,7 +15,7 @@ namespace GraphicalProgramingLanguage
     public partial class Form1 : Form
     {
 
-        Shape shape;
+        Rectangle shape;
         int index = 0;
         string[] Cmmds = new string[30];
         
@@ -36,7 +36,7 @@ namespace GraphicalProgramingLanguage
             }
 
               shape = null;
-              if (!Shape.userinputdraw(txtB.Text, out shape))
+              if (!Rectangle.userinputdraw(txtB.Text, out shape))
               {
                 return;
               }
@@ -65,13 +65,13 @@ namespace GraphicalProgramingLanguage
                 {
                     switch (shape.CurrentShape)
                     {
-                        case Shape.shapes.Circle:
+                        case Rectangle.Shapes.Circle:
                             e.Graphics.DrawEllipse(MyPen, shape.X, shape.Y, shape.Width * 2, shape.Height * 2);
                             break;
-                        case Shape.shapes.Rectangle:
+                        case Shape.Shapes.Rectangle:
                             e.Graphics.DrawRectangle(MyPen, shape.X, shape.Y, shape.Width, shape.Height);
                             break;
-                        case Shape.shapes.Line:
+                        case Shape.Shapes.Line:
                             e.Graphics.DrawLine(MyPen, shape.X, shape.Y, shape.Width, shape.Height);
                             break;
                     }
