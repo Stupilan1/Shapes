@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.RtxtB = new System.Windows.Forms.RichTextBox();
             this.txtB = new System.Windows.Forms.TextBox();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
+            this.Lview1 = new System.Windows.Forms.ListView();
+            this.btn3 = new System.Windows.Forms.Button();
+            this.btn4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,14 +47,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            // 
-            // RtxtB
-            // 
-            this.RtxtB.Location = new System.Drawing.Point(12, 12);
-            this.RtxtB.Name = "RtxtB";
-            this.RtxtB.Size = new System.Drawing.Size(300, 212);
-            this.RtxtB.TabIndex = 1;
-            this.RtxtB.Text = "";
             // 
             // txtB
             // 
@@ -70,7 +64,7 @@
             this.btn1.TabIndex = 3;
             this.btn1.Text = "Submit";
             this.btn1.UseVisualStyleBackColor = false;
-            this.btn1.Click += new System.EventHandler(this.button1_Click);
+            this.btn1.Click += new System.EventHandler(this.btn1_Click_1);
             // 
             // btn2
             // 
@@ -81,7 +75,39 @@
             this.btn2.TabIndex = 4;
             this.btn2.Text = "Clear";
             this.btn2.UseVisualStyleBackColor = false;
-            this.btn2.Click += new System.EventHandler(this.button2_Click);
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
+            // 
+            // Lview1
+            // 
+            this.Lview1.HideSelection = false;
+            this.Lview1.Location = new System.Drawing.Point(12, 12);
+            this.Lview1.Margin = new System.Windows.Forms.Padding(30);
+            this.Lview1.Name = "Lview1";
+            this.Lview1.Size = new System.Drawing.Size(300, 215);
+            this.Lview1.TabIndex = 500;
+            this.Lview1.UseCompatibleStateImageBehavior = false;
+            // 
+            // btn3
+            // 
+            this.btn3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn3.Location = new System.Drawing.Point(12, 305);
+            this.btn3.Name = "btn3";
+            this.btn3.Size = new System.Drawing.Size(75, 23);
+            this.btn3.TabIndex = 501;
+            this.btn3.Text = "Save";
+            this.btn3.UseVisualStyleBackColor = false;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
+            // 
+            // btn4
+            // 
+            this.btn4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn4.Location = new System.Drawing.Point(93, 305);
+            this.btn4.Name = "btn4";
+            this.btn4.Size = new System.Drawing.Size(75, 23);
+            this.btn4.TabIndex = 502;
+            this.btn4.Text = "Load";
+            this.btn4.UseVisualStyleBackColor = false;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // Form1
             // 
@@ -89,10 +115,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 364);
+            this.Controls.Add(this.btn4);
+            this.Controls.Add(this.btn3);
+            this.Controls.Add(this.Lview1);
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.txtB);
-            this.Controls.Add(this.RtxtB);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -105,9 +133,11 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RichTextBox RtxtB;
         private System.Windows.Forms.TextBox txtB;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button btn2;
+        private System.Windows.Forms.ListView Lview1;
+        private System.Windows.Forms.Button btn3;
+        private System.Windows.Forms.Button btn4;
     }
 }

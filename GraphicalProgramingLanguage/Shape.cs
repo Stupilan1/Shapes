@@ -16,7 +16,8 @@ namespace GraphicalProgramingLanguage
         {
             Rectangle,
             Line,
-            Ellipse
+            Circle,
+
         }
 
         public Shape(shapes shape, int x, int y, int width, int height)
@@ -34,7 +35,7 @@ namespace GraphicalProgramingLanguage
         public int Width { get; set; }
         public int Height { get; set; }
 
-        public static bool userinput(string input, out Shape output)
+        public static bool userinputdraw(string input, out Shape output)
         {
             output = null;
 
@@ -49,23 +50,23 @@ namespace GraphicalProgramingLanguage
                 MessageBox.Show("Enter Valid Shape");
                 return false;
             }
-            int x, y, w, h;
+            int px, py, width, length;
 
-            if (!int.TryParse(Commmad[1], out x) ||
-                !int.TryParse(Commmad[2], out y) ||
-                !int.TryParse(Commmad[3], out w) ||
-                !int.TryParse(Commmad[4], out h))
+            if (!int.TryParse(Commmad[1], out px) ||
+                !int.TryParse(Commmad[2], out py) ||
+                !int.TryParse(Commmad[3], out width) ||
+                !int.TryParse(Commmad[4], out length))
             {
                 MessageBox.Show("Enter Valid Location/Measurements");
                 return false;
             }
-            if (w <= 0 || h <= 0)
+            if (width <= 0 || length <= 0)
             {
                 MessageBox.Show("Height/Width must be greater than Zero");
                 return false;
             }
             var shape = (shapes)validCommmads.ToList().FindIndex(a => a.Equals(Commmad[0], StringComparison.OrdinalIgnoreCase));
-            output = new Shape(shape, x, y, w, h);
+            output = new Shape(shape, px, py, width, length);
             return true;
         }
 

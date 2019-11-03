@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,28 +16,40 @@ namespace GraphicalProgramingLanguage
     {
 
         Shape shape;
+        int index = 0;
+        string[] Cmmds = new string[30];
+        
 
-
+        public static string passingtext;
         public Form1()
         {
             InitializeComponent();
                         
         }
+       private void btn1_Click_1(object sender, EventArgs e)
+            {
+           
+            if (index < Cmmds.Length)
+            {
+                Cmmds[index] = txtB.Text;
+                Lview1.Items.Add(Cmmds[index++]);
+            }
 
-        private void button1_Click(object sender, EventArgs e)
+              shape = null;
+              if (!Shape.userinputdraw(txtB.Text, out shape))
+              {
+                return;
+              }
+             pictureBox1.Invalidate();
+        }
+        private void btn2_Click(object sender, EventArgs e)
         {
             shape = null;
-            if (!Shape.userinput(txtB.Text, out shape))
-            {
-                return;
-            }
             pictureBox1.Invalidate();
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btn3_Click(object sender, EventArgs e)
         {
-            shape = null;
-            pictureBox1.Invalidate();
+            File.WriteAllLines(@"D:\Commands.txt", Cmmds, Encoding.UTF8);
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -52,8 +65,8 @@ namespace GraphicalProgramingLanguage
                 {
                     switch (shape.CurrentShape)
                     {
-                        case Shape.shapes.Ellipse:
-                            e.Graphics.DrawEllipse(MyPen, shape.X, shape.Y, shape.Width, shape.Height);
+                        case Shape.shapes.Circle:
+                            e.Graphics.DrawEllipse(MyPen, shape.X, shape.Y, shape.Width * 2, shape.Height * 2);
                             break;
                         case Shape.shapes.Rectangle:
                             e.Graphics.DrawRectangle(MyPen, shape.X, shape.Y, shape.Width, shape.Height);
@@ -63,6 +76,17 @@ namespace GraphicalProgramingLanguage
                             break;
                     }
                 }
+            }
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            List<string> data = File.ReadAllLines(@"D:\File.txt").ToList();
+            foreach (string d in data)
+            {
+                string[] items = d.Split(new char[] { ',' },
+                       StringSplitOptions.RemoveEmptyEntries);
+                Lview1.Items.Add(new ListViewItem(items));
             }
         }
     }
