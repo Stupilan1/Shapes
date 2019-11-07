@@ -3,26 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing;
 
 namespace GraphicalProgramingLanguage
 {
-    class Rectangle : Shape
+    class Circle : Shape
     {
-        int width, height;
-        public Rectangle(int x, int y, int width, int height) : base(x, y)
+        int radius;
+        public Circle(int x, int y, int radius) : base(x, y)
         {
-
-            this.width = width; //the only thingthat is different from shape
-            this.height = height;
+            this.radius = radius;
         }
-
 
         public override void Draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);
-            g.DrawRectangle(p, x, y, width, height);
+            g.DrawEllipse(p, x, y, radius * 2, radius * 2);
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + "  " + this.radius;
+        }
+
+
     }
 }

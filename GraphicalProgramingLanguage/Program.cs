@@ -11,7 +11,7 @@ namespace GraphicalProgramingLanguage
     class Program
     {
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

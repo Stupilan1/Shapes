@@ -4,33 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace GraphicalProgramingLanguage
 {
-    class Shape
+    abstract class Shape
     {
-        public enum Shapes
+        protected int x, y;
+        public Shape(int x, int y)
         {
-            Circle,
-            Rectangle,
-            Line
-        }
+            this.x = x;
+            this.y = y;
+                    }
 
+        public abstract void Draw(Graphics g);
 
-        public Shape()
-        { }
-
-        public Shape(Shapes shape, int x, int y)
+        public override string ToString()
         {
-            CurrentShape = shape;
-            X = x;
-            Y = y;
-
+            return base.ToString() + "    " + this.x + "," + this.y + " : ";
         }
-
-        public Shapes CurrentShape { get; set; } = Shapes.Circle;
-        public int X { get; set; }
-        public int Y { get; set; }
 
 
     }
