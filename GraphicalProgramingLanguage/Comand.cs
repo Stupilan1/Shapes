@@ -1,17 +1,29 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GraphicalProgramingLanguage
 {
-    class Commands
+    class Comand
     {
         ArrayList shapes = new ArrayList();
 
-        public void GetComands()
+        public int MoveX = 0;
+        public int MoveY = 0;
+        int index = 0;
+        string[] Cmmds = new string[30];
+        int x = 0;
+        int y = 0;
+
+        public ArrayList GetComands(TextBox txtB, ListView Lview1)
         {
+            string cmmds = txtB.Text.Trim();
+            string[] cmds = cmmds.Split(' ');
+            int Vcmds = cmds.GetLength(0);
             switch (true)
             {
                 case bool v when cmds[0].Equals("Rectangle", StringComparison.OrdinalIgnoreCase):
@@ -24,7 +36,7 @@ namespace GraphicalProgramingLanguage
                              Int32.TryParse(cmds[2], out int height))
                     {
                         shapes.Add(new Rectangle(x, y, width, height));
-                        pictureBox1.Invalidate();
+                        //pictureBox1.Invalidate();
                         if (index < Cmmds.Length)
                         {
                             Cmmds[index] = txtB.Text;
@@ -42,7 +54,7 @@ namespace GraphicalProgramingLanguage
                     else if (Int32.TryParse(cmds[1], out int radius))
                     {
                         shapes.Add(new Circle(x, y, radius));
-                        pictureBox1.Invalidate();
+                        //pictureBox1.Invalidate();
                         if (index < Cmmds.Length)
                         {
                             Cmmds[index] = txtB.Text;
@@ -69,7 +81,7 @@ namespace GraphicalProgramingLanguage
                             Lview1.Items.Add(Cmmds[index++]); // saves the commands to the list box 
                         }
 
-                        pictureBox1.Invalidate();
+                        //pictureBox1.Invalidate();
                     }
                     break;
 
@@ -103,7 +115,7 @@ namespace GraphicalProgramingLanguage
                             Int32.TryParse(cmds[4], out int y3))
                     {
                         shapes.Add(new Triangle(x, y, x2, y2, x3, y3));
-                        pictureBox1.Invalidate();
+                        //pictureBox1.Invalidate();
                         if (index < Cmmds.Length)
                         {
                             Cmmds[index] = txtB.Text;
@@ -135,9 +147,9 @@ namespace GraphicalProgramingLanguage
 
 
 
-                    return shapes;
+                    
             }
-
+            return shapes;
 
 
 
