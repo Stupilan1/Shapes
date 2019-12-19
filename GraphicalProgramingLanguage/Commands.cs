@@ -23,7 +23,7 @@ namespace GraphicalProgramingLanguage
                     else if (Int32.TryParse(cmds[1], out int width) &&
                              Int32.TryParse(cmds[2], out int height))
                     {
-                        shapes.Add(new Rectangle(x, y, width, height));
+                        shapes.Add(new Rectangle(x, y, width, height)); aUHDASDH
                         pictureBox1.Invalidate();
                         if (index < Cmmds.Length)
                         {
