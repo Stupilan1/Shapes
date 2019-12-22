@@ -48,7 +48,7 @@ namespace GraphicalProgramingLanguage
             //string[] cmds = cmmds.Split(' ');
             //int Vcmds = cmds.GetLength(0);
 
-                shapes = comand.GetComands(txtB, Lview1);
+                shapes = comand.GetComands(txtB, RTxTB);
                 pictureBox1.Invalidate();
 
 
@@ -84,7 +84,7 @@ namespace GraphicalProgramingLanguage
             {
                 string[] items = d.Split(new char[] { ',' },
                        StringSplitOptions.RemoveEmptyEntries);
-                Lview1.Items.Add(new ListViewItem(items));
+                //Lview1.Items.Add(new ListViewItem(items));
             }
         }
     }

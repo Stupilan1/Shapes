@@ -19,7 +19,7 @@ namespace GraphicalProgramingLanguage
         int x = 0;
         int y = 0;
 
-        public ArrayList GetComands(TextBox txtB, ListView Lview1)
+        public ArrayList GetComands(TextBox txtB, RichTextBox RTxTX)
         {
             string cmmds = txtB.Text.Trim();
             string[] cmds = cmmds.Split(' ');
@@ -31,19 +31,18 @@ namespace GraphicalProgramingLanguage
                     {
                         MessageBox.Show("Syntax Error");
                     }
-
-                    else if (Int32.TryParse(cmds[1], out int width) &&
-                             Int32.TryParse(cmds[2], out int height))
+                     
+                   if (Int32.TryParse(cmds[1], out int width) &&
+                       Int32.TryParse(cmds[2], out int height))
                     {
                         shapes.Add(new Rectangle(x, y, width, height));
                         //pictureBox1.Invalidate();
                         if (index < Cmmds.Length)
                         {
                             Cmmds[index] = txtB.Text;
-                            Lview1.Items.Add(Cmmds[index++]); // saves the commands to the list box 
+                            RTxTX.AppendText(Cmmds[index]);// saves the commands to the list box 
                         }
-
-                    }
+                        }
                     break;
 
                 case bool v when cmds[0].Equals("circle", StringComparison.OrdinalIgnoreCase):
@@ -58,7 +57,7 @@ namespace GraphicalProgramingLanguage
                         if (index < Cmmds.Length)
                         {
                             Cmmds[index] = txtB.Text;
-                            Lview1.Items.Add(Cmmds[index++]); // saves the commands to the list box 
+                            RTxTX.AppendText(Cmmds[index]); // saves the commands to the list box 
                         }
                     }
 
@@ -78,7 +77,7 @@ namespace GraphicalProgramingLanguage
                         if (index < Cmmds.Length)
                         {
                             Cmmds[index] = txtB.Text;
-                            Lview1.Items.Add(Cmmds[index++]); // saves the commands to the list box 
+                            RTxTX.AppendText(Cmmds[index]); // saves the commands to the list box 
                         }
 
                         //pictureBox1.Invalidate();
@@ -99,7 +98,7 @@ namespace GraphicalProgramingLanguage
                         if (index < Cmmds.Length)
                         {
                             Cmmds[index] = txtB.Text;
-                            Lview1.Items.Add(Cmmds[index++]); // saves the commands to the list box 
+                            RTxTX.AppendText(Cmmds[index]); // saves the commands to the list box 
                         }
                     }
                     break;
@@ -119,7 +118,7 @@ namespace GraphicalProgramingLanguage
                         if (index < Cmmds.Length)
                         {
                             Cmmds[index] = txtB.Text;
-                            Lview1.Items.Add(Cmmds[index++]); // saves the commands to the list box 
+                            RTxTX.AppendText(Cmmds[index]); // saves the commands to the list box 
                         }
                     }
                     else
@@ -140,7 +139,7 @@ namespace GraphicalProgramingLanguage
                         if (index < Cmmds.Length)
                         {
                             Cmmds[index] = txtB.Text;
-                            Lview1.Items.Add(Cmmds[index++]); // saves the commands to the list box 
+                            RTxTX.AppendText(Cmmds[index]); // saves the commands to the list box 
                         }
                     }
                     break;

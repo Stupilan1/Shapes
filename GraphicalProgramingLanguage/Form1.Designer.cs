@@ -32,9 +32,9 @@
             this.txtB = new System.Windows.Forms.TextBox();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
-            this.Lview1 = new System.Windows.Forms.ListView();
             this.btn3 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
+            this.RTxTB = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,16 +77,6 @@
             this.btn2.UseVisualStyleBackColor = false;
             this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
-            // Lview1
-            // 
-            this.Lview1.HideSelection = false;
-            this.Lview1.Location = new System.Drawing.Point(12, 12);
-            this.Lview1.Margin = new System.Windows.Forms.Padding(30);
-            this.Lview1.Name = "Lview1";
-            this.Lview1.Size = new System.Drawing.Size(300, 215);
-            this.Lview1.TabIndex = 500;
-            this.Lview1.UseCompatibleStateImageBehavior = false;
-            // 
             // btn3
             // 
             this.btn3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -109,15 +99,23 @@
             this.btn4.UseVisualStyleBackColor = false;
             this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
+            // RTxTB
+            // 
+            this.RTxTB.Location = new System.Drawing.Point(12, 12);
+            this.RTxTB.Name = "RTxTB";
+            this.RTxTB.Size = new System.Drawing.Size(300, 217);
+            this.RTxTB.TabIndex = 503;
+            this.RTxTB.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 364);
+            this.Controls.Add(this.RTxTB);
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.btn3);
-            this.Controls.Add(this.Lview1);
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.txtB);
@@ -136,8 +134,8 @@
         private System.Windows.Forms.TextBox txtB;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button btn2;
-        private System.Windows.Forms.ListView Lview1;
         private System.Windows.Forms.Button btn3;
         private System.Windows.Forms.Button btn4;
+        private System.Windows.Forms.RichTextBox RTxTB;
     }
 }
