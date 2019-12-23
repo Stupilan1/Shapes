@@ -10,7 +10,7 @@ namespace Unit_Test
         public void Shape_Height_width()
         {
             //arrange
-            var shape = new Shape();
+           // var shape = new Shape();
             //act
 
             //assert

@@ -7,7 +7,10 @@ using System.Windows.Forms;
 using System.Drawing;
 
 namespace GraphicalProgramingLanguage
-{
+{ 
+    /// <summary>
+    /// an abstract class for all the shapes to 
+    /// </summary>
     class Rectangle : Shape
     {
         int width, height;

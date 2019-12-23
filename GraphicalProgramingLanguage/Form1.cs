@@ -22,10 +22,8 @@ namespace GraphicalProgramingLanguage
 
         public int MoveX = 0;
         public int MoveY = 0;
-        int index = 0;
         string[] Cmmds = new string[30];
-        int x = 0;
-        int y = 0;
+        
         
 
         public PictureBox MyPictureBox
