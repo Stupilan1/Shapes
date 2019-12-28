@@ -36,6 +36,7 @@
             this.btn4 = new System.Windows.Forms.Button();
             this.RTxTB = new System.Windows.Forms.RichTextBox();
             this.btn5 = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +119,10 @@
             this.btn5.UseVisualStyleBackColor = true;
             this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "plain text|*.txt";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,5 +155,6 @@
         private System.Windows.Forms.Button btn4;
         private System.Windows.Forms.RichTextBox RTxTB;
         private System.Windows.Forms.Button btn5;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

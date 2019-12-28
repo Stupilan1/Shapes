@@ -19,6 +19,7 @@ namespace GraphicalProgramingLanguage
         ArrayList shapes = new ArrayList();
 
         Comand comand = new Comand();
+
  
         string[] Cmmds = new string[30];
        
@@ -54,7 +55,8 @@ namespace GraphicalProgramingLanguage
         }
         private void btn3_Click(object sender, EventArgs e)
         {
-            File.WriteAllLines(@"D:\Commands.txt", Cmmds, Encoding.UTF8); //saves the list of commands to a specifed location
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                RTxTB.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
