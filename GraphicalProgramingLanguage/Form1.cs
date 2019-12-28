@@ -52,6 +52,7 @@ namespace GraphicalProgramingLanguage
             shapes.Clear();
             pictureBox1.Invalidate();
             txtB.Clear();
+            RTxTB.Clear();
         }
         private void btn3_Click(object sender, EventArgs e) // Save
         {
