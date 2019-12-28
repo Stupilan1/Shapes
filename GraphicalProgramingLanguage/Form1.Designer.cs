@@ -37,6 +37,7 @@
             this.RTxTB = new System.Windows.Forms.RichTextBox();
             this.btn5 = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,6 +124,10 @@
             // 
             this.saveFileDialog.Filter = "plain text|*.txt";
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.Filter = "plain text|*.txt";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,5 +161,6 @@
         private System.Windows.Forms.RichTextBox RTxTB;
         private System.Windows.Forms.Button btn5;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

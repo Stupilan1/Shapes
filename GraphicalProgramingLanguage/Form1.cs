@@ -47,18 +47,23 @@ namespace GraphicalProgramingLanguage
                 
             }
         }
-        private void btn2_Click(object sender, EventArgs e)
+        private void btn2_Click(object sender, EventArgs e) // Clear
         {
             shapes.Clear();
             pictureBox1.Invalidate();
             txtB.Clear();
         }
-        private void btn3_Click(object sender, EventArgs e)
+        private void btn3_Click(object sender, EventArgs e) // Save
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 RTxTB.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
         }
 
+        private void btn4_Click(object sender, EventArgs e) // Load
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+                RTxTB.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+        }
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -71,16 +76,6 @@ namespace GraphicalProgramingLanguage
             }
         }
 
-        private void btn4_Click(object sender, EventArgs e)
-        {
-            List<string> data = File.ReadAllLines(@"D:\File.txt").ToList();
-            foreach (string d in data)
-            {
-                string[] items = d.Split(new char[] { ',' },
-                       StringSplitOptions.RemoveEmptyEntries);
-                //Lview1.Items.Add(new ListViewItem(items));
-            }
-        }
 
         private void btn5_Click(object sender, EventArgs e)
         {
