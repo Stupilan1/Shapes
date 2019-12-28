@@ -36,7 +36,7 @@ namespace GraphicalProgramingLanguage
                        Int32.TryParse(cmds[2], out int height))
                     {
                         shapes.Add(new Rectangle(x, y, width, height));
-                        //pictureBox1.Invalidate();
+                        
                       
                         }
                     break;
@@ -49,7 +49,7 @@ namespace GraphicalProgramingLanguage
                     else if (Int32.TryParse(cmds[1], out int radius))
                     {
                         shapes.Add(new Circle(x, y, radius));
-                        //pictureBox1.Invalidate();
+                        
 
                     }
 
@@ -65,9 +65,9 @@ namespace GraphicalProgramingLanguage
                     {
                         shapes.Add(new Line(x, y, x2, y2));
                         x = x2;
-                        y = y2;                                
+                        y = y2;                              
 
-                        //pictureBox1.Invalidate();
+ 
                     }
                     break;
 
@@ -97,12 +97,9 @@ namespace GraphicalProgramingLanguage
                             Int32.TryParse(cmds[4], out int y3))
                          {
                         shapes.Add(new Triangle(x, y, x2, y2, x3, y3));
-                        //pictureBox1.Invalidate();
+                      
                          }
-                    else
-                    {
-                        MessageBox.Show("Please enter a triangle");
-                    }
+                  
                     break;
 
                 case bool v when cmds[0].Equals("reset", StringComparison.InvariantCultureIgnoreCase):
@@ -115,7 +112,10 @@ namespace GraphicalProgramingLanguage
                         x = 0;
                         y = 0;
                     }
-                    break;                    
+                    break;
+                default:
+                    MessageBox.Show("Please Enter valid Command");
+                    break;
             }
             return shapes;
 
