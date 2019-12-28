@@ -35,6 +35,7 @@
             this.btn3 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
             this.RTxTB = new System.Windows.Forms.RichTextBox();
+            this.btn5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             // 
             // txtB
             // 
-            this.txtB.Location = new System.Drawing.Point(12, 250);
+            this.txtB.Location = new System.Drawing.Point(488, 283);
             this.txtB.Name = "txtB";
             this.txtB.Size = new System.Drawing.Size(300, 20);
             this.txtB.TabIndex = 2;
@@ -58,7 +59,7 @@
             // btn1
             // 
             this.btn1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn1.Location = new System.Drawing.Point(12, 276);
+            this.btn1.Location = new System.Drawing.Point(632, 309);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(75, 23);
             this.btn1.TabIndex = 3;
@@ -69,7 +70,7 @@
             // btn2
             // 
             this.btn2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn2.Location = new System.Drawing.Point(93, 276);
+            this.btn2.Location = new System.Drawing.Point(632, 338);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(75, 23);
             this.btn2.TabIndex = 4;
@@ -80,7 +81,7 @@
             // btn3
             // 
             this.btn3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn3.Location = new System.Drawing.Point(12, 305);
+            this.btn3.Location = new System.Drawing.Point(713, 338);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(75, 23);
             this.btn3.TabIndex = 501;
@@ -91,7 +92,7 @@
             // btn4
             // 
             this.btn4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn4.Location = new System.Drawing.Point(93, 305);
+            this.btn4.Location = new System.Drawing.Point(713, 309);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(75, 23);
             this.btn4.TabIndex = 502;
@@ -107,12 +108,23 @@
             this.RTxTB.TabIndex = 503;
             this.RTxTB.Text = "";
             // 
+            // btn5
+            // 
+            this.btn5.Location = new System.Drawing.Point(12, 235);
+            this.btn5.Name = "btn5";
+            this.btn5.Size = new System.Drawing.Size(300, 68);
+            this.btn5.TabIndex = 504;
+            this.btn5.Text = "Run";
+            this.btn5.UseVisualStyleBackColor = true;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 364);
+            this.Controls.Add(this.btn5);
             this.Controls.Add(this.RTxTB);
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.btn3);
@@ -137,5 +149,6 @@
         private System.Windows.Forms.Button btn3;
         private System.Windows.Forms.Button btn4;
         private System.Windows.Forms.RichTextBox RTxTB;
+        private System.Windows.Forms.Button btn5;
     }
 }

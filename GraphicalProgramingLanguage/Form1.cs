@@ -19,14 +19,9 @@ namespace GraphicalProgramingLanguage
         ArrayList shapes = new ArrayList();
 
         Comand comand = new Comand();
-
-        public int MoveX = 0;
-        public int MoveY = 0;
-        int index = 0;
+ 
         string[] Cmmds = new string[30];
-        int x = 0;
-        int y = 0;
-        
+       
 
         public PictureBox MyPictureBox
         {
@@ -44,14 +39,11 @@ namespace GraphicalProgramingLanguage
         }
        private void btn1_Click_1(object sender, EventArgs e) { 
             {
-            //string cmmds = txtB.Text.Trim();
-            //string[] cmds = cmmds.Split(' ');
-            //int Vcmds = cmds.GetLength(0);
-
-                shapes = comand.GetComands(txtB, RTxTB);
+            string cmmds = txtB.Text.Trim();
+                      
+                shapes = comand.GetComands(cmmds);
                 pictureBox1.Invalidate();
-
-
+                
             }
         }
         private void btn2_Click(object sender, EventArgs e)
@@ -86,6 +78,15 @@ namespace GraphicalProgramingLanguage
                        StringSplitOptions.RemoveEmptyEntries);
                 //Lview1.Items.Add(new ListViewItem(items));
             }
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+
+            shapes = comand.Program(RTxTB);
+            pictureBox1.Invalidate();
+
+
         }
     }
 

@@ -14,15 +14,15 @@ namespace GraphicalProgramingLanguage
 
         public int MoveX = 0;
         public int MoveY = 0;
-        int index = 0;
         string[] Cmmds = new string[30];
         int x = 0;
         int y = 0;
 
-        public ArrayList GetComands(TextBox txtB, RichTextBox RTxTX)
+        public ArrayList GetComands(String cmmds)
         {
-            string cmmds = txtB.Text.Trim();
+           
             string[] cmds = cmmds.Split(' ');
+
             int Vcmds = cmds.GetLength(0);
             switch (true)
             {
@@ -37,11 +37,7 @@ namespace GraphicalProgramingLanguage
                     {
                         shapes.Add(new Rectangle(x, y, width, height));
                         //pictureBox1.Invalidate();
-                        if (index < Cmmds.Length)
-                        {
-                            Cmmds[index] = txtB.Text;
-                            RTxTX.AppendText(Cmmds[index]);// saves the commands to the list box 
-                        }
+                      
                         }
                     break;
 
@@ -54,11 +50,7 @@ namespace GraphicalProgramingLanguage
                     {
                         shapes.Add(new Circle(x, y, radius));
                         //pictureBox1.Invalidate();
-                        if (index < Cmmds.Length)
-                        {
-                            Cmmds[index] = txtB.Text;
-                            RTxTX.AppendText(Cmmds[index]); // saves the commands to the list box 
-                        }
+
                     }
 
                     break;
@@ -73,12 +65,7 @@ namespace GraphicalProgramingLanguage
                     {
                         shapes.Add(new Line(x, y, x2, y2));
                         x = x2;
-                        y = y2;
-                        if (index < Cmmds.Length)
-                        {
-                            Cmmds[index] = txtB.Text;
-                            RTxTX.AppendText(Cmmds[index]); // saves the commands to the list box 
-                        }
+                        y = y2;                                
 
                         //pictureBox1.Invalidate();
                     }
@@ -95,11 +82,7 @@ namespace GraphicalProgramingLanguage
                     {
                         x = MoveX;
                         y = MoveY;
-                        if (index < Cmmds.Length)
-                        {
-                            Cmmds[index] = txtB.Text;
-                            RTxTX.AppendText(Cmmds[index]); // saves the commands to the list box 
-                        }
+                    
                     }
                     break;
 
@@ -112,15 +95,10 @@ namespace GraphicalProgramingLanguage
                             Int32.TryParse(cmds[2], out int y2) &&
                             Int32.TryParse(cmds[3], out int x3) &&
                             Int32.TryParse(cmds[4], out int y3))
-                    {
+                         {
                         shapes.Add(new Triangle(x, y, x2, y2, x3, y3));
                         //pictureBox1.Invalidate();
-                        if (index < Cmmds.Length)
-                        {
-                            Cmmds[index] = txtB.Text;
-                            RTxTX.AppendText(Cmmds[index]); // saves the commands to the list box 
-                        }
-                    }
+                         }
                     else
                     {
                         MessageBox.Show("Please enter a triangle");
@@ -136,17 +114,8 @@ namespace GraphicalProgramingLanguage
                     {
                         x = 0;
                         y = 0;
-                        if (index < Cmmds.Length)
-                        {
-                            Cmmds[index] = txtB.Text;
-                            RTxTX.AppendText(Cmmds[index]); // saves the commands to the list box 
-                        }
                     }
-                    break;
-
-
-
-                    
+                    break;                    
             }
             return shapes;
 
@@ -154,5 +123,19 @@ namespace GraphicalProgramingLanguage
 
 
         }
+
+        public ArrayList Program(RichTextBox RTxTB)
+        {
+            String[] Separators = { "\r\n", "\n", "\r" };
+            String[] lines = RTxTB.Text.Split(Separators, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (String line in lines)
+                GetComands(line);
+            return shapes;
+
+
+        }
+
     }
+
 }
