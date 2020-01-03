@@ -25,10 +25,7 @@ namespace GraphicalProgramingLanguage
         public override void Draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);
-            Point P1 = new Point(x, y);
-            Point P2 = new Point(x + width, y);
-            Point P3 = new Point(x, y + height);
-            Point[] Triangle = new Point[] { new Point(x, y), new Point(x + width, y), new Point(x, y + height) };
+            Point[] Triangle = new Point[] { new Point(x, y), new Point(x + height, y), new Point(x, y + width) };
             g.DrawPolygon(p, Triangle);
         }
 
