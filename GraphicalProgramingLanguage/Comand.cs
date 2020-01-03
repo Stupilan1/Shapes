@@ -87,19 +87,12 @@ namespace GraphicalProgramingLanguage
                     break;
 
                 case bool v when cmds[0].Equals("Triangle", StringComparison.OrdinalIgnoreCase):
-                    if (Vcmds < 5)
+                    if (Vcmds < 3)
                     {
                         MessageBox.Show("Syntax Error");
                     }
-                    else if (Int32.TryParse(cmds[1], out int x2) &&
-                            Int32.TryParse(cmds[2], out int y2) &&
-                            Int32.TryParse(cmds[3], out int x3) &&
-                            Int32.TryParse(cmds[4], out int y3))
-                         {
-                        shapes.Add(new Triangle(x, y, x2, y2, x3, y3));
-                      
-                         }
-                  
+
+                    shapes.Add(new Triangle(x, y, cmds[1], cmds[2]));
                     break;
 
                 case bool v when cmds[0].Equals("reset", StringComparison.InvariantCultureIgnoreCase):
