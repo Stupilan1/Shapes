@@ -39,6 +39,10 @@ namespace GraphicalProgramingLanguage
                         
                       
                         }
+                   else
+                    {
+                        MessageBox.Show("Syntax Error");
+                    }
                     break;
 
                 case bool v when cmds[0].Equals("circle", StringComparison.OrdinalIgnoreCase):
@@ -46,13 +50,14 @@ namespace GraphicalProgramingLanguage
                     {
                         MessageBox.Show("Syntax Error");
                     }
-                    else if (Int32.TryParse(cmds[1], out int radius))
+                    if (Int32.TryParse(cmds[1], out int radius))
                     {
-                        shapes.Add(new Circle(x, y, radius));
-                        
-
+                        shapes.Add(new Circle(x, y, radius));  
                     }
-
+                    else
+                    {
+                        MessageBox.Show("Syntax Error");
+                    }
                     break;
 
                 case bool v when cmds[0].Equals("drawLine", StringComparison.OrdinalIgnoreCase):
@@ -60,14 +65,16 @@ namespace GraphicalProgramingLanguage
                     {
                         MessageBox.Show("Syntax Error");
                     }
-                    else if (Int32.TryParse(cmds[1], out int x2) &&
+                    if (Int32.TryParse(cmds[1], out int x2) &&
                              Int32.TryParse(cmds[2], out int y2))
                     {
                         shapes.Add(new Line(x, y, x2, y2));
                         x = x2;
                         y = y2;                              
-
- 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Syntax Error");
                     }
                     break;
 
@@ -77,12 +84,16 @@ namespace GraphicalProgramingLanguage
                     {
                         MessageBox.Show("Syntax Error");
                     }
-                    else if (Int32.TryParse(cmds[1], out int MoveX) &&
+                    if (Int32.TryParse(cmds[1], out int MoveX) &&
                             Int32.TryParse(cmds[2], out int MoveY))
                     {
                         x = MoveX;
                         y = MoveY;
                     
+                    }
+                    else
+                    {
+                        MessageBox.Show("Syntax Error");
                     }
                     break;
 
@@ -91,8 +102,11 @@ namespace GraphicalProgramingLanguage
                     {
                         MessageBox.Show("Syntax Error");
                     }
-
-                    shapes.Add(new Triangle(x, y, cmds[1], cmds[2]));
+                    {
+                        shapes.Add(new Triangle(x, y, cmds[1], cmds[2]));
+                    }
+                    
+            
                     break;
 
                 case bool v when cmds[0].Equals("reset", StringComparison.InvariantCultureIgnoreCase):
