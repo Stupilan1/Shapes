@@ -10,12 +10,12 @@ namespace GraphicalProgramingLanguage
     class Triangle : Shape
     {
         //Point[] pnt = new Point[3];
-        int width, height;
-        public Triangle(int x, int y, string height, string width) : base(x, y)
+        int Base, height;
+        public Triangle(int x, int y, string height, string Base) : base(x, y)
         {
 
             if (Int32.TryParse(height, out this.height) &&
-                Int32.TryParse(width, out this.width))
+                Int32.TryParse(Base, out this.Base))
             {
 
             }
@@ -25,13 +25,13 @@ namespace GraphicalProgramingLanguage
         public override void Draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);
-            Point[] Triangle = new Point[] { new Point(x, y), new Point(x + height, y), new Point(x, y + width) };
+            Point[] Triangle = new Point[] { new Point(x, y), new Point(x + height, y + Base), new Point(x, y + Base) };
             g.DrawPolygon(p, Triangle);
         }
 
         public override string ToString()
         {
-            return base.ToString() + "  " + this.height + "  " + this.width;
+            return base.ToString() + "  " + this.height + "  " + this.Base;
         }
     }
 }

@@ -134,9 +134,9 @@ namespace GraphicalProgramingLanguage
         public ArrayList Program(RichTextBox RTxTB)
         {
             String[] Separators = { "\r\n", "\n", "\r" };
-            String[] lines = RTxTB.Text.Split(Separators, StringSplitOptions.RemoveEmptyEntries);
+            String[] Commands = RTxTB.Text.Split(Separators, StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (String line in lines)
+            foreach (String line in Commands)
                 GetComands(line);
             return shapes;
 
