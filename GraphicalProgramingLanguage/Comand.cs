@@ -28,28 +28,26 @@ namespace GraphicalProgramingLanguage
             switch (true)
             {
                 case bool v when cmds[0].Equals("Rectangle", StringComparison.OrdinalIgnoreCase):
-                    if (Vcmds < 3)
+                    if (Vcmds > 3)
                     {
-                        throw new SystemException("Syntax Error");
+                        throw new Exception("length Error");
                     }
                      
-                   if (Int32.TryParse(cmds[1], out int width) &&
-                       Int32.TryParse(cmds[2], out int height))
-                    {
-                        shapes.Add(new Rectangle(x, y, width, height));
-                        
-                      
+                   else if(Int32.TryParse(cmds[1], out int width) &&
+                                     Int32.TryParse(cmds[2], out int height))
+                        {
+                        shapes.Add(new Rectangle(x, y, width, height));                    
                         }
                    else
                     {
-                        throw new SystemException("Syntax Error");
+                        throw new Exception("Syntax Error");
                     }
                     break;
 
                 case bool v when cmds[0].Equals("circle", StringComparison.OrdinalIgnoreCase):
-                    if (Vcmds < 2)
+                    if (Vcmds > 2)
                     {
-                        throw new SystemException("Syntax Error");
+                        throw new Exception("Syntax Error");
                     }
                     if (Int32.TryParse(cmds[1], out int radius))
                     {
@@ -63,9 +61,9 @@ namespace GraphicalProgramingLanguage
                     break;
 
                 case bool v when cmds[0].Equals("drawLine", StringComparison.OrdinalIgnoreCase):
-                    if (Vcmds < 3)
+                    if (Vcmds > 3)
                     {
-                        throw new SystemException("Syntax Error");
+                        throw new Exception("Syntax Error");
                     }
                     if (Int32.TryParse(cmds[1], out int x2) &&
                              Int32.TryParse(cmds[2], out int y2))
@@ -76,15 +74,15 @@ namespace GraphicalProgramingLanguage
                     }
                     else
                     {
-                        throw new SystemException("Syntax Error");
+                        throw new Exception("Syntax Error");
                     }
                     break;
 
                 case bool v when cmds[0].Equals("moveTo", StringComparison.OrdinalIgnoreCase):
 
-                    if (Vcmds < 3)
+                    if (Vcmds > 3)
                     {
-                        throw new SystemException("Syntax Error");
+                        throw new Exception("Syntax Error");
                     }
                     if (Int32.TryParse(cmds[1], out int MoveX) &&
                             Int32.TryParse(cmds[2], out int MoveY))
@@ -95,15 +93,15 @@ namespace GraphicalProgramingLanguage
                     }
                     else
                     {
-                        throw new SystemException("Syntax Error");
+                        throw new Exception("Syntax Error");
                     }
                     break;
 
                 case bool v when cmds[0].Equals("Triangle", StringComparison.OrdinalIgnoreCase):
-                    if (Vcmds < 3)
+                    if (Vcmds > 3)
                     {
-                        
-                        throw new SystemException("Syntax Error");
+
+                        throw new Exception("Syntax Error");
                     }
                     {
                         shapes.Add(new Triangle(x, y, cmds[1], cmds[2]));
@@ -113,9 +111,9 @@ namespace GraphicalProgramingLanguage
                     break;
 
                 case bool v when cmds[0].Equals("reset", StringComparison.InvariantCultureIgnoreCase):
-                    if (Vcmds < 1)
+                    if (Vcmds > 1)
                     {
-                        throw new SystemException("Syntax Error");
+                        throw new Exception("Syntax Error");
                     }
                     else
                     {
@@ -130,8 +128,7 @@ namespace GraphicalProgramingLanguage
                     break;
 
                 default:
-                    throw new SystemException("Erorr Invalid Command");
-                    
+                    throw new Exception("invalid command");
             }
 
             

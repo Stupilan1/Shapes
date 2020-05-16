@@ -20,7 +20,7 @@ namespace GraphicalProgramingLanguage
                 Application.Run(new Form1());
             }
 
-            catch (SystemException error )
+            catch (Exception error )
             {
                 MessageBox.Show(error.Message);
             }
