@@ -10,7 +10,13 @@ namespace UnitTests
         [TestMethod]
         public void TestMethod1()
         {
-           
+            // Arrange
+            UserVariables userVariables = new UserVariables();
+
+            // Act
+            userVariables.CreateVar("bed", 20);
+            // Assert
+            Assert.AreEqual(userVariables.GetVar("bed"),30 );
         }
     }
 }
