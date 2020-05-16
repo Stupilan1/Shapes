@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicalProgramingLanguage", "GraphicalProgramingLanguage\GraphicalProgramingLanguage.csproj", "{7EA15190-0462-4DEF-AB7B-FDB664D8F829}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit Test", "Unit Test\Unit Test.csproj", "{81A8152B-7B54-4A57-B533-9D4A70EA44EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A99C94F0-048E-4D3A-BDE6-BF0BF4F0FA56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{7EA15190-0462-4DEF-AB7B-FDB664D8F829}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EA15190-0462-4DEF-AB7B-FDB664D8F829}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EA15190-0462-4DEF-AB7B-FDB664D8F829}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81A8152B-7B54-4A57-B533-9D4A70EA44EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81A8152B-7B54-4A57-B533-9D4A70EA44EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81A8152B-7B54-4A57-B533-9D4A70EA44EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81A8152B-7B54-4A57-B533-9D4A70EA44EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A99C94F0-048E-4D3A-BDE6-BF0BF4F0FA56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A99C94F0-048E-4D3A-BDE6-BF0BF4F0FA56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A99C94F0-048E-4D3A-BDE6-BF0BF4F0FA56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A99C94F0-048E-4D3A-BDE6-BF0BF4F0FA56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

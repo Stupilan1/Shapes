@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+
 namespace Unit_Test
 {
     [TestClass]
@@ -10,7 +11,7 @@ namespace Unit_Test
         public void Shape_Height_width()
         {
             //arrange
-            var shape = new Shape();
+             var comand  = new Comand();
             //act
 
             //assert

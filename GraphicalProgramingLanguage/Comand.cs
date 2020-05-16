@@ -8,12 +8,13 @@ using System.Windows.Forms;
 
 namespace GraphicalProgramingLanguage
 {
-    class Comand
+    public class Comand
     {
         ArrayList shapes = new ArrayList();
 
         public int MoveX = 0;
         public int MoveY = 0;
+        UserVariables userVariables = new UserVariables();
         string[] Cmmds = new string[30];
         int x = 0;
         int y = 0;
@@ -29,7 +30,7 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("Rectangle", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds < 3)
                     {
-                        MessageBox.Show("Syntax Error");
+                        throw new SystemException("Syntax Error");
                     }
                      
                    if (Int32.TryParse(cmds[1], out int width) &&
@@ -41,14 +42,14 @@ namespace GraphicalProgramingLanguage
                         }
                    else
                     {
-                        MessageBox.Show("Syntax Error");
+                        throw new SystemException("Syntax Error");
                     }
                     break;
 
                 case bool v when cmds[0].Equals("circle", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds < 2)
                     {
-                        MessageBox.Show("Syntax Error");
+                        throw new SystemException("Syntax Error");
                     }
                     if (Int32.TryParse(cmds[1], out int radius))
                     {
@@ -56,14 +57,15 @@ namespace GraphicalProgramingLanguage
                     }
                     else
                     {
-                        MessageBox.Show("Syntax Error");
+
+                        shapes.Add(new Circle(x, y, userVariables.GetVar(cmds[1])));
                     }
                     break;
 
                 case bool v when cmds[0].Equals("drawLine", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds < 3)
                     {
-                        MessageBox.Show("Syntax Error");
+                        throw new SystemException("Syntax Error");
                     }
                     if (Int32.TryParse(cmds[1], out int x2) &&
                              Int32.TryParse(cmds[2], out int y2))
@@ -74,7 +76,7 @@ namespace GraphicalProgramingLanguage
                     }
                     else
                     {
-                        MessageBox.Show("Syntax Error");
+                        throw new SystemException("Syntax Error");
                     }
                     break;
 
@@ -82,7 +84,7 @@ namespace GraphicalProgramingLanguage
 
                     if (Vcmds < 3)
                     {
-                        MessageBox.Show("Syntax Error");
+                        throw new SystemException("Syntax Error");
                     }
                     if (Int32.TryParse(cmds[1], out int MoveX) &&
                             Int32.TryParse(cmds[2], out int MoveY))
@@ -93,14 +95,15 @@ namespace GraphicalProgramingLanguage
                     }
                     else
                     {
-                        MessageBox.Show("Syntax Error");
+                        throw new SystemException("Syntax Error");
                     }
                     break;
 
                 case bool v when cmds[0].Equals("Triangle", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds < 3)
                     {
-                        MessageBox.Show("Syntax Error");
+                        
+                        throw new SystemException("Syntax Error");
                     }
                     {
                         shapes.Add(new Triangle(x, y, cmds[1], cmds[2]));
@@ -112,7 +115,7 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("reset", StringComparison.InvariantCultureIgnoreCase):
                     if (Vcmds < 1)
                     {
-                        MessageBox.Show("Syntax Error");
+                        throw new SystemException("Syntax Error");
                     }
                     else
                     {
@@ -120,10 +123,18 @@ namespace GraphicalProgramingLanguage
                         y = 0;
                     }
                     break;
-                default:
-                    MessageBox.Show("Please Enter valid Command");
+
+                case bool v when cmds[0].Equals("var", StringComparison.InvariantCultureIgnoreCase):
+                    Int32.TryParse(cmds[2], out int VarInt);
+                    userVariables.CreateVar(cmds[1], VarInt);
                     break;
+
+                default:
+                    throw new SystemException("Erorr Invalid Command");
+                    
             }
+
+            
             return shapes;
 
 
@@ -133,14 +144,26 @@ namespace GraphicalProgramingLanguage
 
         public ArrayList Program(RichTextBox RTxTB)
         {
+            
             String[] Separators = { "\r\n", "\n", "\r" };
             String[] Commands = RTxTB.Text.Split(Separators, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (String line in Commands)
-                GetComands(line);
+            {
+                string[] cmds = line.Split(' ');
+                switch (true)
+                {
+                    case bool v when cmds[0].Equals("Loop", StringComparison.InvariantCultureIgnoreCase):
+                        
+                        break;
+                    default:
+                        GetComands(line);
+                        break;
+                } 
+            }
             return shapes;
 
-
+          
         }
 
     }

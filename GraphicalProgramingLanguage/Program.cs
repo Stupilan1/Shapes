@@ -15,7 +15,15 @@ namespace GraphicalProgramingLanguage
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            try
+            {
+                Application.Run(new Form1());
+            }
+
+            catch (SystemException error )
+            {
+                MessageBox.Show(error.Message);
+            }
         }
     }
 }
