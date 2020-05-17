@@ -15,6 +15,7 @@ namespace GraphicalProgramingLanguage
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+           
             try
             {
                 Application.Run(new Form1());
@@ -23,6 +24,7 @@ namespace GraphicalProgramingLanguage
             catch (Exception error )
             {
                 MessageBox.Show(error.Message);
+                Application.Run(new Form1());
             }
         }
     }

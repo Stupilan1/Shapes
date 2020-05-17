@@ -25,31 +25,36 @@ namespace GraphicalProgramingLanguage
 
     public int GetVar(string VarName)
         {
-           for (int i = 0;i<VarIntList.Count;) 
-            foreach (string name in VarNameList) //itterates through the list
+            for (int i = 0; i < VarIntList.Count;)
             {
-                
-                if (name.Equals(VarName)){ //checks the inputted name agianst the list 
-                    return VarIntList[i];
-                    
+                foreach (string name in VarNameList) //itterates through the list
+                {
+
+                    if (name.Equals(VarName))
+                    { //checks the inputted name agianst the list 
+                        return VarIntList[i];
+
+                    }
+                    i++;
                 }
-                
             }
 
-
-            throw new Exception ("No Variable found");//throw expetion 
+            throw new Exception ("No Variable found");//throws expetion 
         }
 
-        public void ifloop(string name) { 
+        public void creatloop(string name, int reapeat) 
+        { 
+        if (name.Equals("loop"))
+                {
+
+                
+            }
+           
+
+            }
         
+
         
-        
-        }
-
-
-
-
-
-
-    }
+   }
 }
+

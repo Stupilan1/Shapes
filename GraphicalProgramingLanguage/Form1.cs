@@ -80,7 +80,7 @@ namespace GraphicalProgramingLanguage
 
         private void btn5_Click(object sender, EventArgs e)
         {
-
+            RTxTB.Text.Trim();
             shapes = comand.Program(RTxTB);
             pictureBox1.Invalidate();
 

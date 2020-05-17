@@ -11,34 +11,43 @@ namespace GraphicalProgramingLanguage
     class Triangle : Shape
     {
         //Point[] pnt = new Point[3];
-        int Base, height;
-        public Triangle(int x, int y, string height, string Base) : base(x, y)
+        int Base, length;
+        public Triangle(int x, int y, int length, int Base) : base(x, y)
         {
-          
-
-                if (Int32.TryParse(height, out this.height) &&
-                    Int32.TryParse(Base, out this.Base))
-                {
-                    
-                }
             
-            else
-            {
-                MessageBox.Show("Syntax Error");
-            }
 
-        }
+                this.Base = Base; //the only thingthat is different from shape
+                this.length = length;
+            
+
+       }
 
         public override void Draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);
-            Point[] Triangle = new Point[] { new Point(x, y), new Point(x + height, y + Base    ), new Point(x, y + Base) };
+            Point[] Triangle = new Point[] { new Point(x, y), new Point(x + length, y + Base), new Point(x, y + Base) };
             g.DrawPolygon(p, Triangle);
         }
 
         public override string ToString()
         {
-            return base.ToString() + "  " + this.height + "  " + this.Base;
+            return base.ToString() + "  " + this.length + "  " + this.Base;
         }
     }
 }
+
+
+/*  if (Int32.TryParse(height, out this.height) &&
+                Int32.TryParse(Base, out this.Base))
+            {
+
+            }
+
+        else
+        {
+            MessageBox.Show("Syntax Error");
+        }*/
+//put in commands
+/*  {
+                       shapes.Add(new Triangle(x, y, cmds[1], cmds[2]));
+                   }*/

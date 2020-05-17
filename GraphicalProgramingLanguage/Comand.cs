@@ -21,9 +21,9 @@ namespace GraphicalProgramingLanguage
 
         public ArrayList GetComands(String cmmds)
         {
-           
+            cmmds.Trim();
             string[] cmds = cmmds.Split(' ');
-
+            
             int Vcmds = cmds.GetLength(0);
             switch (true)
             {
@@ -33,21 +33,21 @@ namespace GraphicalProgramingLanguage
                         throw new Exception("length Error");
                     }
                      
-                   else if(Int32.TryParse(cmds[1], out int width) &&
+                    if(Int32.TryParse(cmds[1], out int width) &&
                                      Int32.TryParse(cmds[2], out int height))
                         {
                         shapes.Add(new Rectangle(x, y, width, height));                    
                         }
                    else
                     {
-                        throw new Exception("Syntax Error");
+                        shapes.Add(new Rectangle(x, y, userVariables.GetVar(cmds[1]), userVariables.GetVar(cmds[2])));
                     }
                     break;
 
                 case bool v when cmds[0].Equals("circle", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds > 2)
                     {
-                        throw new Exception("Syntax Error");
+                        throw new Exception("Length Error");
                     }
                     if (Int32.TryParse(cmds[1], out int radius))
                     {
@@ -58,6 +58,24 @@ namespace GraphicalProgramingLanguage
 
                         shapes.Add(new Circle(x, y, userVariables.GetVar(cmds[1])));
                     }
+                    break;
+                case bool v when cmds[0].Equals("Triangle", StringComparison.OrdinalIgnoreCase):
+                    if (Vcmds > 3)
+                    {
+
+                        throw new Exception("Syntax Error");
+                    }
+                    if (Int32.TryParse(cmds[1], out int length) &&
+                                     Int32.TryParse(cmds[2], out int Base))
+                    {
+                        shapes.Add(new Triangle(x, y, length, Base));
+                    }
+                                              
+                    else
+                    {
+                       shapes.Add(new Triangle(x, y, userVariables.GetVar(cmds[1]), userVariables.GetVar(cmds[2])));
+                    }
+
                     break;
 
                 case bool v when cmds[0].Equals("drawLine", StringComparison.OrdinalIgnoreCase):
@@ -74,7 +92,7 @@ namespace GraphicalProgramingLanguage
                     }
                     else
                     {
-                        throw new Exception("Syntax Error");
+                        shapes.Add(new Line(x, y, userVariables.GetVar(cmds[1]), userVariables.GetVar(cmds[2])));
                     }
                     break;
 
@@ -93,22 +111,15 @@ namespace GraphicalProgramingLanguage
                     }
                     else
                     {
-                        throw new Exception("Syntax Error");
+                        x = userVariables.GetVar(cmds[1]);
+                        y = userVariables.GetVar(cmds[2]);
                     }
                     break;
 
-                case bool v when cmds[0].Equals("Triangle", StringComparison.OrdinalIgnoreCase):
-                    if (Vcmds > 3)
-                    {
+   
 
-                        throw new Exception("Syntax Error");
-                    }
-                    {
-                        shapes.Add(new Triangle(x, y, cmds[1], cmds[2]));
-                    }
-                    
-            
-                    break;
+
+                 
 
                 case bool v when cmds[0].Equals("reset", StringComparison.InvariantCultureIgnoreCase):
                     if (Vcmds > 1)
@@ -143,15 +154,17 @@ namespace GraphicalProgramingLanguage
         {
             
             String[] Separators = { "\r\n", "\n", "\r" };
-            String[] Commands = RTxTB.Text.Split(Separators, StringSplitOptions.RemoveEmptyEntries);
+            String[] Commands = RTxTB.Text.Trim().Split(Separators, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (String line in Commands)
             {
+              
+
                 string[] cmds = line.Split(' ');
                 switch (true)
                 {
                     case bool v when cmds[0].Equals("Loop", StringComparison.InvariantCultureIgnoreCase):
-                        
+                        //userVariables.creatloop(line);
                         break;
                     default:
                         GetComands(line);
