@@ -9,11 +9,11 @@ namespace GraphicalProgramingLanguage
    public class UserVariables
     {
 
-
+       
+        public int LoopinNum;
         public List<int> VarIntList = new List<int>();
         public List<string> VarNameList = new List<string>();
-
-        
+        public List<string> Loopin = new List<string>();        
 
     public void CreateVar(string VarName, int VarInt)
         {
@@ -42,18 +42,29 @@ namespace GraphicalProgramingLanguage
             throw new Exception ("No Variable found");//throws expetion 
         }
 
-        public void creatloop(string name, int reapeat) 
-        { 
-        if (name.Equals("loop"))
-                {
+        public void creatloopline(string line) 
+        {
+            Loopin.Add(line);
+         
 
-                
+        }
+  
+        public void createloop(int looptime)
+        {
+            LoopinNum = looptime;
+        }
+         
+        public string[] getloop()
+        {
+            string[] loops = new string[Loopin.Count()];
+            int index = 0;
+            foreach (string Line in Loopin)
+            {
+                loops[index] = Loopin[index];
+                index++;
             }
-           
-
-            }
-        
-
+            return loops;
+        }
         
    }
 }

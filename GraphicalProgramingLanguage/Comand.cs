@@ -21,8 +21,8 @@ namespace GraphicalProgramingLanguage
 
         public ArrayList GetComands(String cmmds)
         {
-            cmmds.Trim();
-            string[] cmds = cmmds.Split(' ');
+            
+            string[] cmds = cmmds.Trim().Split(' ');
             
             int Vcmds = cmds.GetLength(0);
             switch (true)
@@ -105,8 +105,8 @@ namespace GraphicalProgramingLanguage
                     if (Int32.TryParse(cmds[1], out int MoveX) &&
                             Int32.TryParse(cmds[2], out int MoveY))
                     {
-                        x = MoveX;
-                        y = MoveY;
+                        x +=  MoveX;
+                        y += MoveY;
                     
                     }
                     else
@@ -134,7 +134,12 @@ namespace GraphicalProgramingLanguage
                     break;
 
                 case bool v when cmds[0].Equals("var", StringComparison.InvariantCultureIgnoreCase):
-                    Int32.TryParse(cmds[2], out int VarInt);
+                    if (!Int32.TryParse(cmds[2], out int VarInt))
+                    {
+                        throw new Exception("wasnt able to parse varable into an integer ");
+                    }
+                    ;
+
                     userVariables.CreateVar(cmds[1], VarInt);
                     break;
 
@@ -155,26 +160,56 @@ namespace GraphicalProgramingLanguage
             
             String[] Separators = { "\r\n", "\n", "\r" };
             String[] Commands = RTxTB.Text.Trim().Split(Separators, StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (String line in Commands)
-            {
-              
-
-                string[] cmds = line.Split(' ');
-                switch (true)
-                {
-                    case bool v when cmds[0].Equals("Loop", StringComparison.InvariantCultureIgnoreCase):
-                        //userVariables.creatloop(line);
-                        break;
-                    default:
-                        GetComands(line);
-                        break;
-                } 
-            }
+            MultiCommand(Commands);
+            
+            
             return shapes;
 
           
         }
+        public void MultiCommand(string[] Cmds)
+        {
+            bool flag = false;
+            foreach (String line in Cmds)
+            {
+
+
+                string[] cmds = line.Split(' ');
+                int Vcmds = cmds.GetLength(0);
+                if (flag == true)
+                {
+                    if (cmds[0].Equals("Endloop", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        flag = false;
+                        MultiCommand(userVariables.getloop());
+                    }
+                    else
+                    {
+                        userVariables.creatloopline(line);
+                    }
+                }
+                switch (true)
+                {
+
+                    case bool v when cmds[0].Equals("Loop", StringComparison.InvariantCultureIgnoreCase):
+                        flag = true;
+                        Int32.TryParse(cmds[1], out int lp);
+                        userVariables.createloop(lp);
+                        break;
+                    case bool v when cmds[0].Equals("EndLoop", StringComparison.InvariantCultureIgnoreCase):
+                        break;
+
+                    case bool v when cmds[0].Equals("if", StringComparison.InvariantCultureIgnoreCase):
+                        if (Vcmds > 4) { }
+                        break;
+                    default:
+                        GetComands(line);
+                        break;
+                }
+            }
+        }
+
+
 
     }
 
