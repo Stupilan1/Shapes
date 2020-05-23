@@ -65,7 +65,20 @@ namespace GraphicalProgramingLanguage
             }
             return loops;
         }
+
+        public void ClearLoops()
+        {
+            Loopin.Clear();
+        }
         
+        public void createifloop()
+        {
+
+        }
+
+
+
+
    }
 }
 

@@ -116,10 +116,7 @@ namespace GraphicalProgramingLanguage
                     }
                     break;
 
-   
-
-
-                 
+               
 
                 case bool v when cmds[0].Equals("reset", StringComparison.InvariantCultureIgnoreCase):
                     if (Vcmds > 1)
@@ -199,8 +196,12 @@ namespace GraphicalProgramingLanguage
                     case bool v when cmds[0].Equals("EndLoop", StringComparison.InvariantCultureIgnoreCase):
                         break;
 
+                    case bool v when cmds[0].Equals("ClearLoop", StringComparison.InvariantCultureIgnoreCase):
+                        userVariables.ClearLoops();
+                        break;
+
                     case bool v when cmds[0].Equals("if", StringComparison.InvariantCultureIgnoreCase):
-                        if (Vcmds > 4) { }
+                       
                         break;
                     default:
                         GetComands(line);
