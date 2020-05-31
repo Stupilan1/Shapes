@@ -8,9 +8,12 @@ using System.Drawing;
 
 namespace GraphicalProgramingLanguage
 {
-    abstract class Shape
+    public abstract class Shape
     {
+
         protected int x, y;
+        
+
         public Shape(int x, int y)
         {
             this.x = x;

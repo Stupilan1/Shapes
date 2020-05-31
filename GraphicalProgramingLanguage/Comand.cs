@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GraphicalProgramingLanguage
-{
+{/// <summary>
+/// The class is used to draw the shapes with commaneds 
+/// from the text/richtext box
+/// </summary>
     public class Comand
     {
         ArrayList shapes = new ArrayList();
@@ -19,6 +22,11 @@ namespace GraphicalProgramingLanguage
         int x = 0;
         int y = 0;
 
+        /// <summary>
+        /// Sorts through commands to draw shapes
+        /// </summary>
+        /// <param name="cmmds">Command line passed by user</param>
+        /// <returns>ArrrayList Containing shapes</returns>
         public ArrayList GetComands(String cmmds)
         {
             
@@ -30,7 +38,11 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("Rectangle", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds > 3)
                     {
-                        throw new Exception("length Error");
+                        throw new ShapesException("Rectangle too manyy Parameters");
+                    }
+                    else if (Vcmds < 3)
+                    {
+                        throw new ShapesException("Not Enough prameteres in Rectanlge ");
                     }
                      
                     if(Int32.TryParse(cmds[1], out int width) &&
@@ -47,7 +59,7 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("circle", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds > 2)
                     {
-                        throw new Exception("Length Error");
+                        throw new ShapesException("Length Error");
                     }
                     if (Int32.TryParse(cmds[1], out int radius))
                     {
@@ -63,7 +75,7 @@ namespace GraphicalProgramingLanguage
                     if (Vcmds > 3)
                     {
 
-                        throw new Exception("Syntax Error");
+                        throw new ShapesException("Syntax Error");
                     }
                     if (Int32.TryParse(cmds[1], out int length) &&
                                      Int32.TryParse(cmds[2], out int Base))
@@ -81,7 +93,7 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("drawLine", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds > 3)
                     {
-                        throw new Exception("Syntax Error");
+                        throw new ShapesException("Syntax Error");
                     }
                     if (Int32.TryParse(cmds[1], out int x2) &&
                              Int32.TryParse(cmds[2], out int y2))
@@ -100,7 +112,7 @@ namespace GraphicalProgramingLanguage
 
                     if (Vcmds > 3)
                     {
-                        throw new Exception("Syntax Error");
+                        throw new ShapesException("Syntax Error");
                     }
                     if (Int32.TryParse(cmds[1], out int MoveX) &&
                             Int32.TryParse(cmds[2], out int MoveY))
@@ -121,7 +133,7 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("reset", StringComparison.InvariantCultureIgnoreCase):
                     if (Vcmds > 1)
                     {
-                        throw new Exception("Syntax Error");
+                        throw new ShapesException("Syntax Error");
                     }
                     else
                     {
@@ -133,7 +145,7 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("var", StringComparison.InvariantCultureIgnoreCase):
                     if (!Int32.TryParse(cmds[2], out int VarInt))
                     {
-                        throw new Exception("wasnt able to parse varable into an integer ");
+                        throw new ShapesException("wasnt able to parse varable into an integer ");
                     }
                     ;
 
@@ -141,16 +153,16 @@ namespace GraphicalProgramingLanguage
                     break;
 
                 default:
-                    throw new Exception("invalid command");
+                    throw new ShapesException("invalid command");
             }
 
             
             return shapes;
 
 
-
-
         }
+       
+        
 
         public ArrayList Program(RichTextBox RTxTB)
         {

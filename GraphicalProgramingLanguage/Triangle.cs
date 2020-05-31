@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GraphicalProgramingLanguage
 {
-    class Triangle : Shape
+    public class Triangle : Shape
     {
         //Point[] pnt = new Point[3];
         int Base, length;

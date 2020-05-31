@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Circle.cs" />
     <Compile Include="Comand.cs" />
+    <Compile Include="ShapesException.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Shape.cs" />

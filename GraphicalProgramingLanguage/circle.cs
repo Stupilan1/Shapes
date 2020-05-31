@@ -7,9 +7,10 @@ using System.Drawing;
 
 namespace GraphicalProgramingLanguage
 {
-    class Circle : Shape
+    public class Circle : Shape
     {
         int radius;
+ 
         public Circle(int x, int y, int radius) : base(x, y)
         {
             this.radius = radius;

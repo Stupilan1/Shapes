@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace GraphicalProgramingLanguage
 {
-    class Rectangle : Shape
+    public class Rectangle : Shape
     {
         int width, height;
         public Rectangle(int x, int y, int width, int height) : base(x, y)

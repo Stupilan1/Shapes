@@ -20,7 +20,7 @@ namespace GraphicalProgramingLanguage
                 Application.Run(new Form1());
             }
 
-            catch (Exception error )
+            catch (ShapesException error )
             {
                 MessageBox.Show(error.Message);
                 Application.Run(new Form1());
