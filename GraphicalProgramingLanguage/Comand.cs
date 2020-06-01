@@ -38,14 +38,14 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("Rectangle", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds > 3)
                     {
-                        throw new ShapesException("Rectangle too manyy Parameters");
+                        throw new ShapesException("Rectangle Too Many Parameters Error");
                     }
                     else if (Vcmds < 3)
                     {
-                        throw new ShapesException("Not Enough prameteres in Rectanlge ");
+                        throw new ShapesException("Rectangle not enough Parameters Error");
                     }
-                     
-                    if(Int32.TryParse(cmds[1], out int width) &&
+
+                    if (Int32.TryParse(cmds[1], out int width) &&
                                      Int32.TryParse(cmds[2], out int height))
                         {
                         shapes.Add(new Rectangle(x, y, width, height));                    
@@ -56,10 +56,14 @@ namespace GraphicalProgramingLanguage
                     }
                     break;
 
-                case bool v when cmds[0].Equals("circle", StringComparison.OrdinalIgnoreCase):
+                case bool v when cmds[0].Equals("Circle", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds > 2)
                     {
-                        throw new ShapesException("Length Error");
+                        throw new ShapesException("Circle Too Many Parameters Error");
+                    }
+                    else if (Vcmds < 2)
+                    {
+                        throw new ShapesException("Circle not enough Parameters Error");
                     }
                     if (Int32.TryParse(cmds[1], out int radius))
                     {
@@ -74,8 +78,11 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("Triangle", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds > 3)
                     {
-
-                        throw new ShapesException("Syntax Error");
+                        throw new ShapesException("Triangle Too Many Parameters Error");
+                    }
+                    else if (Vcmds < 3)
+                    {
+                        throw new ShapesException("Triangle not enough Parameters Error");
                     }
                     if (Int32.TryParse(cmds[1], out int length) &&
                                      Int32.TryParse(cmds[2], out int Base))
@@ -93,7 +100,11 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("drawLine", StringComparison.OrdinalIgnoreCase):
                     if (Vcmds > 3)
                     {
-                        throw new ShapesException("Syntax Error");
+                        throw new ShapesException("drawLine Too Many Parameters Error");
+                    }
+                    else if (Vcmds < 3)
+                    {
+                        throw new ShapesException("drawLine not enough Parameters Error");
                     }
                     if (Int32.TryParse(cmds[1], out int x2) &&
                              Int32.TryParse(cmds[2], out int y2))
@@ -112,7 +123,11 @@ namespace GraphicalProgramingLanguage
 
                     if (Vcmds > 3)
                     {
-                        throw new ShapesException("Syntax Error");
+                        throw new ShapesException("moveTo Too Many Parameters Error");
+                    }
+                    else if (Vcmds < 3)
+                    {
+                        throw new ShapesException("moveTo not enough Parameters Error");
                     }
                     if (Int32.TryParse(cmds[1], out int MoveX) &&
                             Int32.TryParse(cmds[2], out int MoveY))
@@ -133,7 +148,7 @@ namespace GraphicalProgramingLanguage
                 case bool v when cmds[0].Equals("reset", StringComparison.InvariantCultureIgnoreCase):
                     if (Vcmds > 1)
                     {
-                        throw new ShapesException("Syntax Error");
+                        throw new ShapesException("Reset Parameters Error");
                     }
                     else
                     {
@@ -161,28 +176,34 @@ namespace GraphicalProgramingLanguage
 
 
         }
-       
-        
 
+
+        /// <summary>
+        /// Used to seperate the lines in the rich text box
+        /// </summary>
+        /// <param name="RTxTB"></param>
+        /// <returns>ArrrayList Containing shapes program</returns>
         public ArrayList Program(RichTextBox RTxTB)
         {
             
             String[] Separators = { "\r\n", "\n", "\r" };
             String[] Commands = RTxTB.Text.Trim().Split(Separators, StringSplitOptions.RemoveEmptyEntries);
             MultiCommand(Commands);
-            
-            
+                        
             return shapes;
 
-          
         }
+
+
+        /// <summary>
+        /// Deals with the commands that are run in a program and loops and also store the user variables
+        /// </summary>
+        /// <param name="Cmds"></param>
         public void MultiCommand(string[] Cmds)
         {
             bool flag = false;
             foreach (String line in Cmds)
             {
-
-
                 string[] cmds = line.Split(' ');
                 int Vcmds = cmds.GetLength(0);
                 if (flag == true)
@@ -190,35 +211,55 @@ namespace GraphicalProgramingLanguage
                     if (cmds[0].Equals("Endloop", StringComparison.InvariantCultureIgnoreCase))
                     {
                         flag = false;
-                        MultiCommand(userVariables.getloop());
+                        for (int i = 1; i <= userVariables.getloopnum(); i++)
+                        {
+                            MultiCommand(userVariables.getloop());
+                           // foreach (String loopline in userVariables.getloop()) {
+                               // GetComands(loopline);
+
+                           // }
+                        }
+
                     }
                     else
                     {
                         userVariables.creatloopline(line);
                     }
                 }
-                switch (true)
-                {
+                else {
+                    switch (true)
+                    {
 
-                    case bool v when cmds[0].Equals("Loop", StringComparison.InvariantCultureIgnoreCase):
-                        flag = true;
-                        Int32.TryParse(cmds[1], out int lp);
-                        userVariables.createloop(lp);
-                        break;
-                    case bool v when cmds[0].Equals("EndLoop", StringComparison.InvariantCultureIgnoreCase):
-                        break;
+                        case bool v when cmds[0].Equals("Loop", StringComparison.InvariantCultureIgnoreCase):
+                            flag = true;
+                            if (Int32.TryParse(cmds[1], out int lp))
+                            {
+                                userVariables.createloop(lp);
+                            }
+                            else
+                            {
+                                lp = userVariables.GetVar(cmds[1]);
+                                userVariables.createloop(lp);
+                            }
+                            break;
+                        case bool v when cmds[0].Equals("EndLoop", StringComparison.InvariantCultureIgnoreCase):
+                            userVariables.ClearLoops();
+                            break;
 
-                    case bool v when cmds[0].Equals("ClearLoop", StringComparison.InvariantCultureIgnoreCase):
-                        userVariables.ClearLoops();
-                        break;
+                        case bool v when cmds[0].Equals("ClearLoop", StringComparison.InvariantCultureIgnoreCase):
 
-                    case bool v when cmds[0].Equals("if", StringComparison.InvariantCultureIgnoreCase):
-                       
-                        break;
-                    default:
-                        GetComands(line);
-                        break;
+                            break;
+
+                        case bool v when cmds[0].Equals("if", StringComparison.InvariantCultureIgnoreCase):
+
+                            break;
+                        default:
+                            GetComands(line);
+                            break;
+                    }
+
                 }
+               
             }
         }
 

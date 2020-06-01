@@ -17,13 +17,9 @@ namespace GraphicalProgramingLanguage
 
         Pen myPen = new Pen(Color.Black);
         ArrayList shapes = new ArrayList();
-
-        Comand comand = new Comand();
-
- 
+        Comand comand = new Comand();         
         string[] Cmmds = new string[30];
        
-
         public PictureBox MyPictureBox
         {
             get
@@ -38,7 +34,13 @@ namespace GraphicalProgramingLanguage
             InitializeComponent();
                         
         }
-       private void btn1_Click_1(object sender, EventArgs e) { 
+        /// <summary>
+        /// Runs the commands in the text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+       
+        private void Btn_Run_Line(object sender, EventArgs e) { 
             {
             string cmmds = txtB.Text.Trim();
                       
@@ -47,24 +49,56 @@ namespace GraphicalProgramingLanguage
                 
             }
         }
-        private void btn2_Click(object sender, EventArgs e) // Clear
+
+        /// <summary>
+        /// Clears everything in the Texfields and PictureBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_Clear(object sender, EventArgs e) // Clear
         {
             shapes.Clear();
             pictureBox1.Invalidate();
             txtB.Clear();
             RTxTB.Clear();
         }
-        private void btn3_Click(object sender, EventArgs e) // Save
+
+        /// <summary>
+        /// Saves the Program to a user chosen location
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_Save(object sender, EventArgs e) // Save
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 RTxTB.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
         }
 
-        private void btn4_Click(object sender, EventArgs e) // Load
+        /// <summary>
+        /// Load a program of commands from the PC
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_Load(object sender, EventArgs e) // Load
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
                 RTxTB.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
         }
+
+        /// <summary>
+        /// Run the commands in the R
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_Run_Program(object sender, EventArgs e)
+        {
+            RTxTB.Text.Trim();
+            shapes = comand.Program(RTxTB);
+            pictureBox1.Invalidate();
+
+
+        }
+        
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -77,17 +111,7 @@ namespace GraphicalProgramingLanguage
             }
         }
 
-
-        private void btn5_Click(object sender, EventArgs e)
-        {
-            RTxTB.Text.Trim();
-            shapes = comand.Program(RTxTB);
-            pictureBox1.Invalidate();
-
-
-        }
+        
     }
-
-
-    
+           
  }

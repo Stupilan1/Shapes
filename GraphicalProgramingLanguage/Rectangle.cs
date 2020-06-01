@@ -8,6 +8,9 @@ using System.Drawing;
 
 namespace GraphicalProgramingLanguage
 {
+    /// <summary>
+    /// This is the class that draws rectangles
+    /// </summary>
     public class Rectangle : Shape
     {
         int width, height;

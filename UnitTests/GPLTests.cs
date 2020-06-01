@@ -8,6 +8,9 @@ namespace UnitTests
     [TestClass]
     public class GPLTests
     {
+        /// <summary>
+        /// test to see if the user variable 'bed' of value '20' exists when created 
+        /// </summary>
         [TestMethod]
         public void USER_VARIABLE_BED()
         {
@@ -32,6 +35,9 @@ namespace UnitTests
             Assert.AreEqual(userVariables.GetVar("Size"), 120);
         }
 
+        /// <summary>
+        /// Test to see if the rectangle shapes and command are equal
+        /// </summary>
         [TestMethod]
         public void TEST_COMMAND_RECTANLE()
         {

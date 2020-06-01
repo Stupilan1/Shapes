@@ -8,6 +8,9 @@ using System.Drawing;
 
 namespace GraphicalProgramingLanguage
 {
+    /// <summary>
+    /// Abstract class to be used by other shape classes 
+    /// </summary>
     public abstract class Shape
     {
 
@@ -20,6 +23,10 @@ namespace GraphicalProgramingLanguage
             this.y = y;
                     }
 
+        /// <summary>
+        /// Any class that uses the shapes class must have this method
+        /// </summary>
+        /// <param name="g"></param>
         public abstract void Draw(Graphics g);
 
         public override string ToString()

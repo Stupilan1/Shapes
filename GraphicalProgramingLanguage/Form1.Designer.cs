@@ -67,7 +67,7 @@
             this.btn1.TabIndex = 3;
             this.btn1.Text = "Submit";
             this.btn1.UseVisualStyleBackColor = false;
-            this.btn1.Click += new System.EventHandler(this.btn1_Click_1);
+            this.btn1.Click += new System.EventHandler(this.Btn_Run_Line);
             // 
             // btn2
             // 
@@ -78,7 +78,7 @@
             this.btn2.TabIndex = 4;
             this.btn2.Text = "Clear";
             this.btn2.UseVisualStyleBackColor = false;
-            this.btn2.Click += new System.EventHandler(this.btn2_Click);
+            this.btn2.Click += new System.EventHandler(this.Btn_Clear);
             // 
             // btn3
             // 
@@ -89,7 +89,7 @@
             this.btn3.TabIndex = 501;
             this.btn3.Text = "Save";
             this.btn3.UseVisualStyleBackColor = false;
-            this.btn3.Click += new System.EventHandler(this.btn3_Click);
+            this.btn3.Click += new System.EventHandler(this.Btn_Save);
             // 
             // btn4
             // 
@@ -100,7 +100,7 @@
             this.btn4.TabIndex = 502;
             this.btn4.Text = "Load";
             this.btn4.UseVisualStyleBackColor = false;
-            this.btn4.Click += new System.EventHandler(this.btn4_Click);
+            this.btn4.Click += new System.EventHandler(this.Btn_Load);
             // 
             // RTxTB
             // 
@@ -118,7 +118,7 @@
             this.btn5.TabIndex = 504;
             this.btn5.Text = "Run";
             this.btn5.UseVisualStyleBackColor = true;
-            this.btn5.Click += new System.EventHandler(this.btn5_Click);
+            this.btn5.Click += new System.EventHandler(this.Btn_Run_Program);
             // 
             // saveFileDialog
             // 
